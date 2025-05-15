@@ -20,10 +20,17 @@ dependencies:
   amplify_flutter: ^2.6.1
   amplify_auth_cognito: ^2.6.1
   amplify_authenticator: ^2.0.0 # A prebuilt Sign In and Sign Up experience for the Amplify Auth category
+  
   # Flutter Secure Storage provides API to store data in secure storage. 
   # Keychain is used in iOS, 
   # KeyStore based solution is used in Android.
   flutter_secure_storage: ^9.2.4
+
+  # A powerful HTTP networking package, 
+  # supports Interceptors, 
+  # Aborting and canceling a request, 
+  # Custom adapters, Transformers, etc.
+  dio: ^5.8.0+1
 
 dev_dependencies:
   bloc_test: ^9.1.7
