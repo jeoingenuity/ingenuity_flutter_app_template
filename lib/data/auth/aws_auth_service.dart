@@ -1,6 +1,7 @@
-import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'auth_service.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
+import 'package:flutter/rendering.dart';
+import 'package:ingenuity_flutter_app_template/domain/auth_service.dart';
 
 class AWSAuthService implements AuthService {
   AWSAuthService() {
@@ -13,7 +14,7 @@ class AWSAuthService implements AuthService {
       await Amplify.addPlugin(authPlugin);
       await Amplify.configure('amplifyconfiguration');
     } catch (e) {
-      print('Error configuring Amplify: $e');
+      debugPrint('Error configuring Amplify: $e');
     }
   }
 
@@ -24,9 +25,9 @@ class AWSAuthService implements AuthService {
         username: email,
         password: password,
       );
-      print('Sign up result: ${result.isSignUpComplete}');
+      debugPrint('Sign up result: ${result.isSignUpComplete}');
     } catch (e) {
-      print('Error signing up: $e');
+      debugPrint('Error signing up: $e');
     }
   }
 
@@ -37,9 +38,9 @@ class AWSAuthService implements AuthService {
         username: email,
         password: password,
       );
-      print('Sign in result: ${result.isSignedIn}');
+      debugPrint('Sign in result: ${result.isSignedIn}');
     } catch (e) {
-      print('Error signing in: $e');
+      debugPrint('Error signing in: $e');
     }
   }
 
@@ -47,9 +48,9 @@ class AWSAuthService implements AuthService {
   Future<void> signOut() async {
     try {
       await Amplify.Auth.signOut();
-      print('Signed out successfully');
+      debugPrint('Signed out successfully');
     } catch (e) {
-      print('Error signing out: $e');
+      debugPrint('Error signing out: $e');
     }
   }
 
@@ -59,7 +60,7 @@ class AWSAuthService implements AuthService {
       final session = await Amplify.Auth.fetchAuthSession();
       return session.isSignedIn;
     } catch (e) {
-      print('Error fetching auth session: $e');
+      debugPrint('Error fetching auth session: $e');
       return false;
     }
   }
