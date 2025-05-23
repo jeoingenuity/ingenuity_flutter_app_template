@@ -3,7 +3,6 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:ingenuity_flutter_app_template/amplifyconfiguration.dart';
 import 'package:ingenuity_flutter_app_template/l10n/l10n.dart';
-import 'package:ingenuity_flutter_app_template/presentation/counter/counter.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -55,7 +54,11 @@ class _AppState extends State<App> {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: const Scaffold(
+        body: Center(
+          child: Text('data'),
+        ),
+      ),
     );
   }
 }
