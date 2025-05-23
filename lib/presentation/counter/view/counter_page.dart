@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ingenuity_flutter_app_template/counter/counter.dart';
+import 'package:ingenuity_flutter_app_template/presentation/counter/counter.dart';
 import 'package:ingenuity_flutter_app_template/l10n/l10n.dart';
 
 class CounterPage extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ingenuity_flutter_app_template/app/app.dart';
-import 'package:ingenuity_flutter_app_template/counter/counter.dart';
+import 'package:ingenuity_flutter_app_template/presentation/app/app.dart';
+import 'package:ingenuity_flutter_app_template/presentation/counter/counter.dart';
 
 void main() {
   group('App', () {
