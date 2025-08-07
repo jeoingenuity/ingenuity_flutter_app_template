@@ -13,8 +13,8 @@ dependencies:
     sdk: flutter
 
   # State Management
-  flutter_bloc: ^8.1.6
-  bloc: ^8.1.4
+  flutter_bloc: ^9.1.1
+  bloc: ^9.0.0
 
   # AWS Amplify
   amplify_flutter: ^2.4.0
@@ -54,7 +54,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  bloc_test: ^9.1.7
+  bloc_test: ^10.0.0
   mocktail: ^1.0.4
   flutter_lints: ^5.0.0
 
