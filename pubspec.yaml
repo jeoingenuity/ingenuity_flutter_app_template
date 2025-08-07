@@ -1,5 +1,5 @@
 name: ingenuity_flutter_app_template
-description: A Very Good Project created by Very Good CLI.
+description: A production-ready Flutter template with Clean Architecture, Bloc state management, and AWS Amplify integration.
 version: 1.0.0+1
 publish_to: none
 
@@ -7,30 +7,72 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
-  bloc: ^9.0.0
   flutter:
     sdk: flutter
-  flutter_bloc: ^9.1.1
   flutter_localizations:
     sdk: flutter
-  # LOCALIZATION 
-  intl: ^0.19.0
-  # AWS AUTH (AWS AMPLIFY + AWS COGNITO)
-  amplify_flutter: ^2.6.1
-  amplify_auth_cognito: ^2.6.1
-  amplify_authenticator: ^2.0.0 # A prebuilt Sign In and Sign Up experience for the Amplify Auth category
-  # Flutter Secure Storage provides API to store data in secure storage. 
-  # Keychain is used in iOS, 
-  # KeyStore based solution is used in Android.
+
+  # State Management
+  flutter_bloc: ^8.1.6
+  bloc: ^8.1.4
+
+  # AWS Amplify
+  amplify_flutter: ^2.4.0
+  amplify_auth_cognito: ^2.4.0
+
+  # Dependency Injection
+  get_it: ^8.0.2
+
+  # Form Validation
+  formz: ^0.7.0
+
+  # Over-the-air updates
+  shorebird_code_push: ^1.1.3
+
+  # Equatable for value equality
+  equatable: ^2.0.5
+
+  # HTTP client
+  dio: ^5.7.0
+
+  # Native enhancements
+  flutter_native_splash: ^2.4.1
+  flutter_launcher_icons: ^0.14.1
+
+  # Utilities
+  intl: ^0.20.2
+
+  # Logging
+  talker_flutter: ^3.2.4
+
+  # Icons
+  cupertino_icons: ^1.0.8
+
+  # Secure Storage
   flutter_secure_storage: ^9.2.4
 
 dev_dependencies:
-  bloc_test: ^10.0.0
   flutter_test:
     sdk: flutter
+  bloc_test: ^9.1.7
   mocktail: ^1.0.4
-  very_good_analysis: ^7.0.0
+  flutter_lints: ^5.0.0
 
+# Flutter configuration
 flutter:
-  uses-material-design: true
   generate: true
+  uses-material-design: true
+  assets:
+    - assets/
+
+# Native splash and launcher icons config (commented out until images are added)
+# flutter_native_splash:
+#   color: "#ffffff"
+#   image: assets/splash_logo.png
+#   color_dark: "#000000"
+#   image_dark: assets/splash_logo_dark.png
+
+# flutter_launcher_icons:
+#   android: "launcher_icon"
+#   ios: true
+#   image_path: "assets/app_icon.png"
