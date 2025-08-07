@@ -1,4 +1,19 @@
-include: package:very_good_analysis/analysis_options.6.0.0.yaml
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/generated/**"
+    - ".dart_tool/**"
+
 linter:
   rules:
+    avoid_relative_lib_imports: true
+    prefer_interpolation_to_compose_strings: true
+    sort_constructors_first: true
+    require_trailing_commas: true
+    avoid_empty_else: true
+    curly_braces_in_flow_control_structures: true
     public_member_api_docs: false
+    avoid_print: false

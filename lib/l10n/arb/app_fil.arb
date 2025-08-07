@@ -1,6 +1,6 @@
 {
-  "@@locale": "en",
-  "counterAppBarTitle": "Counter",
+  "@@locale": "fil",
+  "counterAppBarTitle": "Sumukat",
   "@counterAppBarTitle": {
     "description": "Text shown in the AppBar of the Counter Page"
   },
@@ -8,19 +8,19 @@
   "@appTitle": {
     "description": "The application title"
   },
-  "welcome": "Welcome",
+  "welcome": "Maligayang pagdating",
   "@welcome": {
     "description": "Welcome message"
   },
-  "signIn": "Sign In",
+  "signIn": "Mag-sign in",
   "@signIn": {
     "description": "Sign in button text"
   },
-  "signUp": "Sign Up",
+  "signUp": "Mag-sign up",
   "@signUp": {
     "description": "Sign up button text"
   },
-  "signOut": "Sign Out",
+  "signOut": "Mag-sign out",
   "@signOut": {
     "description": "Sign out button text"
   },
@@ -28,51 +28,23 @@
   "@email": {
     "description": "Email field label"
   },
-  "emailHint": "Enter your email address",
-  "@emailHint": {
-    "description": "Email field hint text"
-  },
   "password": "Password",
   "@password": {
     "description": "Password field label"
   },
-  "passwordHint": "Enter your password",
-  "@passwordHint": {
-    "description": "Password field hint text"
-  },
-  "confirmPassword": "Confirm Password",
+  "confirmPassword": "Kumpirmahin ang password",
   "@confirmPassword": {
     "description": "Confirm password field label"
   },
-  "forgotPassword": "Forgot Password?",
+  "forgotPassword": "Nakalimutan ang password?",
   "@forgotPassword": {
     "description": "Forgot password link text"
   },
-  "forgotPasswordNotImplemented": "Forgot password feature coming soon",
-  "@forgotPasswordNotImplemented": {
-    "description": "Forgot password not implemented message"
-  },
-  "loginSubtitle": "Sign in to access your account",
-  "@loginSubtitle": {
-    "description": "Login page subtitle"
-  },
-  "loginFooter": "Secure authentication powered by AWS Cognito",
-  "@loginFooter": {
-    "description": "Login page footer text"
-  },
-  "alreadyHaveAccount": "Already have an account? Sign In",
-  "@alreadyHaveAccount": {
-    "description": "Switch to sign in mode text"
-  },
-  "dontHaveAccount": "Don't have an account? Sign Up",
-  "@dontHaveAccount": {
-    "description": "Switch to sign up mode text"
-  },
-  "resetPassword": "Reset Password",
+  "resetPassword": "I-reset ang password",
   "@resetPassword": {
     "description": "Reset password button text"
   },
-  "home": "Home",
+  "home": "Tahanan",
   "@home": {
     "description": "Home navigation label"
   },
@@ -80,23 +52,23 @@
   "@profile": {
     "description": "Profile navigation label"
   },
-  "settings": "Settings",
+  "settings": "Mga setting",
   "@settings": {
     "description": "Settings navigation label"
   },
-  "darkMode": "Dark Mode",
+  "darkMode": "Dark mode",
   "@darkMode": {
     "description": "Dark mode setting label"
   },
-  "lightMode": "Light Mode",
+  "lightMode": "Light mode",
   "@lightMode": {
     "description": "Light mode setting label"
   },
-  "systemMode": "System",
+  "systemMode": "Sistema",
   "@systemMode": {
     "description": "System theme mode setting label"
   },
-  "language": "Language",
+  "language": "Wika",
   "@language": {
     "description": "Language setting label"
   },
@@ -108,23 +80,23 @@
   "@filipino": {
     "description": "Filipino language option"
   },
-  "save": "Save",
+  "save": "I-save",
   "@save": {
     "description": "Save button text"
   },
-  "cancel": "Cancel",
+  "cancel": "Kanselahin",
   "@cancel": {
     "description": "Cancel button text"
   },
-  "delete": "Delete",
+  "delete": "Tanggalin",
   "@delete": {
     "description": "Delete button text"
   },
-  "edit": "Edit",
+  "edit": "I-edit",
   "@edit": {
     "description": "Edit button text"
   },
-  "loading": "Loading...",
+  "loading": "Naglo-load...",
   "@loading": {
     "description": "Loading indicator text"
   },
@@ -132,115 +104,115 @@
   "@error": {
     "description": "Error title"
   },
-  "success": "Success",
+  "success": "Tagumpay",
   "@success": {
     "description": "Success title"
   },
-  "warning": "Warning",
+  "warning": "Babala",
   "@warning": {
     "description": "Warning title"
   },
-  "info": "Info",
+  "info": "Impormasyon",
   "@info": {
     "description": "Info title"
   },
-  "retry": "Retry",
+  "retry": "Subukan ulit",
   "@retry": {
     "description": "Retry button text"
   },
-  "noInternetConnection": "No internet connection",
+  "noInternetConnection": "Walang internet connection",
   "@noInternetConnection": {
     "description": "No internet connection error message"
   },
-  "sessionExpired": "Session expired. Please sign in again.",
+  "sessionExpired": "Nag-expire na ang session. Mag-sign in ulit.",
   "@sessionExpired": {
     "description": "Session expired error message"
   },
-  "invalidCredentials": "Invalid email or password",
+  "invalidCredentials": "Mali ang email o password",
   "@invalidCredentials": {
     "description": "Invalid credentials error message"
   },
-  "accountNotVerified": "Please verify your account before signing in",
+  "accountNotVerified": "I-verify ang account bago mag-sign in",
   "@accountNotVerified": {
     "description": "Account not verified error message"
   },
-  "serverError": "Server error occurred. Please try again later.",
+  "serverError": "May error sa server. Subukan ulit mamaya.",
   "@serverError": {
     "description": "Server error message"
   },
-  "unexpectedError": "An unexpected error occurred. Please try again.",
+  "unexpectedError": "May hindi inaasahang error. Subukan ulit.",
   "@unexpectedError": {
     "description": "Unexpected error message"
   },
-  "emailRequired": "Email is required",
+  "emailRequired": "Kailangan ang email",
   "@emailRequired": {
     "description": "Email required validation message"
   },
-  "invalidEmail": "Invalid email format",
+  "invalidEmail": "Hindi valid ang email format",
   "@invalidEmail": {
     "description": "Invalid email format validation message"
   },
-  "passwordRequired": "Password is required",
+  "passwordRequired": "Kailangan ang password",
   "@passwordRequired": {
     "description": "Password required validation message"
   },
-  "passwordTooShort": "Password must be at least 8 characters",
+  "passwordTooShort": "Dapat hindi bababa sa 8 characters ang password",
   "@passwordTooShort": {
     "description": "Password too short validation message"
   },
-  "passwordsDoNotMatch": "Passwords do not match",
+  "passwordsDoNotMatch": "Hindi magkatugma ang mga password",
   "@passwordsDoNotMatch": {
     "description": "Passwords do not match validation message"
   },
-  "verificationCode": "Verification Code",
+  "verificationCode": "Verification code",
   "@verificationCode": {
     "description": "Verification code field label"
   },
-  "resendCode": "Resend Code",
+  "resendCode": "I-send ulit ang code",
   "@resendCode": {
     "description": "Resend code button text"
   },
-  "verify": "Verify",
+  "verify": "I-verify",
   "@verify": {
     "description": "Verify button text"
   },
-  "checkEmail": "Check your email for the verification code",
+  "checkEmail": "Tingnan ang email mo para sa verification code",
   "@checkEmail": {
     "description": "Check email for verification code message"
   },
-  "signUpSuccess": "Sign up successful. Please verify your email.",
+  "signUpSuccess": "Matagumpay na nag-sign up. I-verify ang email mo.",
   "@signUpSuccess": {
     "description": "Sign up success message"
   },
-  "signInSuccess": "Sign in successful",
+  "signInSuccess": "Matagumpay na nag-sign in",
   "@signInSuccess": {
     "description": "Sign in success message"
   },
-  "signOutSuccess": "Sign out successful",
+  "signOutSuccess": "Matagumpay na nag-sign out",
   "@signOutSuccess": {
     "description": "Sign out success message"
   },
-  "passwordResetSuccess": "Password reset link sent to your email",
+  "passwordResetSuccess": "Na-send na ang password reset link sa email mo",
   "@passwordResetSuccess": {
     "description": "Password reset success message"
   },
-  "updateAvailable": "Update available",
+  "updateAvailable": "May available na update",
   "@updateAvailable": {
     "description": "Update available message"
   },
-  "updateDownloading": "Downloading update...",
+  "updateDownloading": "Nagda-download ng update...",
   "@updateDownloading": {
     "description": "Update downloading message"
   },
-  "updateInstalling": "Installing update...",
+  "updateInstalling": "Nag-i-install ng update...",
   "@updateInstalling": {
     "description": "Update installing message"
   },
-  "updateComplete": "Update complete",
+  "updateComplete": "Tapos na ang update",
   "@updateComplete": {
     "description": "Update complete message"
   },
-  "restartRequired": "Restart required",
+  "restartRequired": "Kailangan mag-restart ng app",
   "@restartRequired": {
     "description": "Restart required message"
   }
