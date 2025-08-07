@@ -32,13 +32,14 @@ class UpdateInfo {
   final bool isDownloaded;
 
   @override
-  String toString() => 'UpdateInfo(available: $isUpdateAvailable, downloaded: $isDownloaded)';
+  String toString() =>
+      'UpdateInfo(available: $isUpdateAvailable, downloaded: $isDownloaded)';
 }
 
 /// Service for managing over-the-air updates using Shorebird
 class ShorebirdService {
   static const String _tag = LogTags.shorebird;
-  
+
   final ShorebirdCodePush _codePush = ShorebirdCodePush();
   UpdateStatus _status = UpdateStatus.unknown;
   UpdateInfo? _lastUpdateInfo;
@@ -53,10 +54,10 @@ class ShorebirdService {
   Future<Result<void>> initialize() async {
     try {
       AppLogger.info('Initializing Shorebird service...', tag: _tag);
-      
+
       // Check if code push is available
       final isAvailable = await _codePush.isNewPatchAvailableForDownload();
-      
+
       if (isAvailable) {
         _status = UpdateStatus.updateAvailable;
         AppLogger.info('Update is available', tag: _tag);
@@ -64,7 +65,7 @@ class ShorebirdService {
         _status = UpdateStatus.upToDate;
         AppLogger.info('App is up to date', tag: _tag);
       }
-      
+
       return const Result.success(null);
     } catch (e, stackTrace) {
       AppLogger.error(
@@ -73,7 +74,7 @@ class ShorebirdService {
         error: e,
         stackTrace: stackTrace,
       );
-      
+
       _status = UpdateStatus.error;
       return Result.failure(
         ServerFailure(
@@ -89,17 +90,17 @@ class ShorebirdService {
   Future<Result<UpdateInfo>> checkForUpdates() async {
     try {
       AppLogger.info('Checking for updates...', tag: _tag);
-      
+
       final isAvailable = await _codePush.isNewPatchAvailableForDownload();
-      
+
       final updateInfo = UpdateInfo(
         isUpdateAvailable: isAvailable,
         // Note: Shorebird doesn't provide size/description info directly
         // These would need to be managed separately if needed
       );
-      
+
       _lastUpdateInfo = updateInfo;
-      
+
       if (isAvailable) {
         _status = UpdateStatus.updateAvailable;
         AppLogger.info('Update is available', tag: _tag);
@@ -107,7 +108,7 @@ class ShorebirdService {
         _status = UpdateStatus.upToDate;
         AppLogger.info('No updates available', tag: _tag);
       }
-      
+
       return Result.success(updateInfo);
     } catch (e, stackTrace) {
       AppLogger.error(
@@ -116,7 +117,7 @@ class ShorebirdService {
         error: e,
         stackTrace: stackTrace,
       );
-      
+
       _status = UpdateStatus.error;
       return Result.failure(
         NetworkFailure(
@@ -132,7 +133,7 @@ class ShorebirdService {
   Future<Result<void>> downloadUpdate() async {
     try {
       AppLogger.info('Downloading update...', tag: _tag);
-      
+
       if (_status != UpdateStatus.updateAvailable) {
         return Result.failure(
           const ValidationFailure(
@@ -141,15 +142,15 @@ class ShorebirdService {
           ),
         );
       }
-      
+
       _status = UpdateStatus.downloading;
-      
+
       // Download the patch
       await _codePush.downloadUpdateIfAvailable();
-      
+
       // Check if patch was downloaded and ready to install
       final isReady = await _codePush.isNewPatchReadyToInstall();
-      
+
       if (isReady) {
         _status = UpdateStatus.downloaded;
         _lastUpdateInfo = UpdateInfo(
@@ -174,7 +175,7 @@ class ShorebirdService {
         error: e,
         stackTrace: stackTrace,
       );
-      
+
       _status = UpdateStatus.error;
       return Result.failure(
         NetworkFailure(
@@ -190,7 +191,7 @@ class ShorebirdService {
   Future<Result<void>> installUpdate() async {
     try {
       AppLogger.info('Installing update...', tag: _tag);
-      
+
       if (_status != UpdateStatus.downloaded) {
         return Result.failure(
           const ValidationFailure(
@@ -199,9 +200,9 @@ class ShorebirdService {
           ),
         );
       }
-      
+
       _status = UpdateStatus.installing;
-      
+
       // Check if patch is ready and can be installed
       final isReady = await _codePush.isNewPatchReadyToInstall();
       if (!isReady) {
@@ -212,10 +213,10 @@ class ShorebirdService {
           ),
         );
       }
-      
+
       _status = UpdateStatus.restartRequired;
       AppLogger.info('Update is ready, restart required to apply', tag: _tag);
-      
+
       return const Result.success(null);
     } catch (e, stackTrace) {
       AppLogger.error(
@@ -224,7 +225,7 @@ class ShorebirdService {
         error: e,
         stackTrace: stackTrace,
       );
-      
+
       _status = UpdateStatus.error;
       return Result.failure(
         ServerFailure(
@@ -240,11 +241,11 @@ class ShorebirdService {
   Future<Result<bool>> isUpdateReadyToInstall() async {
     try {
       final isReady = await _codePush.isNewPatchReadyToInstall();
-      
+
       if (isReady && _status != UpdateStatus.downloaded) {
         _status = UpdateStatus.downloaded;
       }
-      
+
       return Result.success(isReady);
     } catch (e, stackTrace) {
       AppLogger.error(
@@ -253,7 +254,7 @@ class ShorebirdService {
         error: e,
         stackTrace: stackTrace,
       );
-      
+
       return Result.failure(
         ServerFailure(
           message: 'Failed to check update status',
@@ -274,7 +275,7 @@ class ShorebirdService {
         'lastUpdateInfo': _lastUpdateInfo?.toString(),
         'timestamp': DateTime.now().toIso8601String(),
       };
-      
+
       return Result.success(info);
     } catch (e, stackTrace) {
       AppLogger.error(
@@ -283,7 +284,7 @@ class ShorebirdService {
         error: e,
         stackTrace: stackTrace,
       );
-      
+
       return Result.failure(
         ServerFailure(
           message: 'Failed to get patch information',

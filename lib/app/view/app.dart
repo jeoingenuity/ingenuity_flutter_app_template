@@ -23,7 +23,7 @@ class App extends StatelessWidget {
     //   ],
     //   child: const AppView(),
     // );
-    
+
     return const AppView();
   }
 }
@@ -67,7 +67,7 @@ class _AppViewState extends State<AppView> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
     AppLogger.debug('App lifecycle state changed: $state', tag: 'APP');
-    
+
     switch (state) {
       case AppLifecycleState.resumed:
         // App resumed from background
@@ -109,12 +109,12 @@ class _AppViewState extends State<AppView> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ingenuity Flutter App',
-      
+
       // Theming
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system, // TODO: Make this configurable via Bloc
-      
+
       // Localization
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
@@ -127,10 +127,10 @@ class _AppViewState extends State<AppView> with WidgetsBindingObserver {
         Locale('fil', ''),
       ],
       locale: null, // TODO: Make this configurable via Bloc
-      
+
       // Disable debug banner in release mode
       debugShowCheckedModeBanner: false,
-      
+
       // Builder for global error handling and overlays
       builder: (context, child) {
         return MediaQuery(
@@ -141,17 +141,17 @@ class _AppViewState extends State<AppView> with WidgetsBindingObserver {
           child: child ?? const SizedBox.shrink(),
         );
       },
-      
+
       // Navigation
       home: const SplashScreen(),
-      
+
       // Global navigation key for programmatic navigation
       // navigatorKey: NavigationService.navigatorKey, // TODO: Implement navigation service
-      
+
       // Route configuration
       // onGenerateRoute: AppRouter.onGenerateRoute, // TODO: Implement app router
       // onUnknownRoute: AppRouter.onUnknownRoute,
-      
+
       // Performance optimization
       checkerboardRasterCacheImages: false,
       checkerboardOffscreenLayers: false,

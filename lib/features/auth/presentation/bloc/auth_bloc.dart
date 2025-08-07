@@ -184,7 +184,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         error: e,
         stackTrace: stackTrace,
       );
-      emit(const AuthError(message: 'An unexpected error occurred during login'));
+      emit(const AuthError(
+          message: 'An unexpected error occurred during login'));
     }
   }
 
@@ -220,7 +221,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         error: e,
         stackTrace: stackTrace,
       );
-      emit(const AuthError(message: 'An unexpected error occurred during sign up'));
+      emit(const AuthError(
+          message: 'An unexpected error occurred during sign up'));
     }
   }
 
@@ -252,7 +254,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         error: e,
         stackTrace: stackTrace,
       );
-      emit(const AuthError(message: 'An unexpected error occurred during logout'));
+      emit(const AuthError(
+          message: 'An unexpected error occurred during logout'));
     }
   }
 
@@ -261,7 +264,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     Emitter<AuthState> emit,
   ) async {
     AppLogger.debug('Auth status changed: ${event.status}', tag: _tag);
-    
+
     switch (event.status) {
       case AuthStatus.authenticated:
         final currentUser = _authService.currentUser;

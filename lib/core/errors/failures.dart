@@ -19,7 +19,8 @@ abstract class Failure extends Equatable {
   String get userMessage => message;
 
   @override
-  String toString() => 'Failure: $message${code != null ? ' (Code: $code)' : ''}';
+  String toString() =>
+      'Failure: $message${code != null ? ' (Code: $code)' : ''}';
 }
 
 /// Network-related failures
@@ -82,7 +83,7 @@ class AuthFailure extends Failure {
     if (isSessionExpired) {
       return 'Your session has expired. Please sign in again.';
     }
-    
+
     switch (code) {
       case 'UserNotConfirmedException':
         return 'Please verify your account by clicking the link in your email.';

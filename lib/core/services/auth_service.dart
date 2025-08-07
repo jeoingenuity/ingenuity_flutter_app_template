@@ -42,7 +42,10 @@ class AuthUser {
 
   @override
   int get hashCode {
-    return id.hashCode ^ email.hashCode ^ name.hashCode ^ isEmailVerified.hashCode;
+    return id.hashCode ^
+        email.hashCode ^
+        name.hashCode ^
+        isEmailVerified.hashCode;
   }
 }
 
@@ -53,7 +56,7 @@ class AuthService {
   static const String _lastSignedInEmailKey = 'last_signed_in_email';
 
   final AmplifyService _amplifyService;
-  
+
   AuthUser? _currentUser;
   AuthStatus _status = AuthStatus.unknown;
 
@@ -72,7 +75,7 @@ class AuthService {
   Future<Result<AuthStatus>> initialize() async {
     try {
       AppLogger.info('Initializing Auth Service...', tag: _tag);
-      
+
       // Ensure Amplify is configured
       final amplifyResult = await _amplifyService.ensureInitialized();
       if (amplifyResult.isFailure) {
@@ -80,21 +83,23 @@ class AuthService {
       }
 
       _status = AuthStatus.configuring;
-      
+
       // Check current auth session only if Amplify is properly configured
       if (_amplifyService.isConfigured) {
         final sessionResult = await getCurrentUser();
         if (sessionResult.isSuccess && sessionResult.data != null) {
           _currentUser = sessionResult.data;
           _status = AuthStatus.authenticated;
-          AppLogger.info('User is authenticated: ${_currentUser?.email}', tag: _tag);
+          AppLogger.info('User is authenticated: ${_currentUser?.email}',
+              tag: _tag);
         } else {
           _status = AuthStatus.unauthenticated;
           AppLogger.info('User is not authenticated', tag: _tag);
         }
       } else {
         _status = AuthStatus.unauthenticated;
-        AppLogger.warning('Amplify not fully configured, skipping auth check', tag: _tag);
+        AppLogger.warning('Amplify not fully configured, skipping auth check',
+            tag: _tag);
       }
 
       return Result.success(_status);
@@ -105,7 +110,7 @@ class AuthService {
         error: e,
         stackTrace: stackTrace,
       );
-      
+
       _status = AuthStatus.unknown;
       return Result.failure(
         AuthFailure(
@@ -129,7 +134,7 @@ class AuthService {
       final userAttributesMap = <AuthUserAttributeKey, String>{
         AuthUserAttributeKey.email: email,
       };
-      
+
       // Add additional user attributes if provided
       if (userAttributes != null) {
         for (final entry in userAttributes.entries) {
@@ -204,7 +209,8 @@ class AuthService {
         AppLogger.info('Sign up confirmed successfully for: $email', tag: _tag);
         return const Result.success(null);
       } else {
-        AppLogger.warning('Sign up confirmation incomplete for: $email', tag: _tag);
+        AppLogger.warning('Sign up confirmation incomplete for: $email',
+            tag: _tag);
         return Result.failure(
           const AuthFailure(
             message: 'Sign up confirmation is incomplete',
@@ -251,10 +257,10 @@ class AuthService {
         if (userResult.isSuccess && userResult.data != null) {
           _currentUser = userResult.data;
           _status = AuthStatus.authenticated;
-          
+
           // Store last signed in email
           await _storage.write(key: _lastSignedInEmailKey, value: email);
-          
+
           AppLogger.info('Sign in successful for: $email', tag: _tag);
           return Result.success(_currentUser!);
         } else {
@@ -300,10 +306,10 @@ class AuthService {
       AppLogger.info('Signing out user: ${_currentUser?.email}', tag: _tag);
 
       await Amplify.Auth.signOut();
-      
+
       _currentUser = null;
       _status = AuthStatus.unauthenticated;
-      
+
       AppLogger.info('Sign out successful', tag: _tag);
       return const Result.success(null);
     } on AuthException catch (e) {
@@ -336,14 +342,14 @@ class AuthService {
       }
 
       final authSession = await Amplify.Auth.fetchAuthSession();
-      
+
       if (!authSession.isSignedIn) {
         return const Result.success(null);
       }
 
       final user = await Amplify.Auth.getCurrentUser();
       final userAttributes = await Amplify.Auth.fetchUserAttributes();
-      
+
       String? email;
       String? name;
       bool isEmailVerified = false;
@@ -380,7 +386,8 @@ class AuthService {
 
       return Result.success(authUser);
     } on AuthException catch (e) {
-      AppLogger.error('Get current user failed: ${e.message}', tag: _tag, error: e);
+      AppLogger.error('Get current user failed: ${e.message}',
+          tag: _tag, error: e);
       return Result.failure(_mapAuthException(e));
     } catch (e, stackTrace) {
       AppLogger.error(
@@ -405,11 +412,12 @@ class AuthService {
       AppLogger.info('Requesting password reset for: $email', tag: _tag);
 
       await Amplify.Auth.resetPassword(username: email);
-      
+
       AppLogger.info('Password reset initiated for: $email', tag: _tag);
       return const Result.success(null);
     } on AuthException catch (e) {
-      AppLogger.error('Password reset failed: ${e.message}', tag: _tag, error: e);
+      AppLogger.error('Password reset failed: ${e.message}',
+          tag: _tag, error: e);
       return Result.failure(_mapAuthException(e));
     } catch (e, stackTrace) {
       AppLogger.error(
@@ -442,11 +450,12 @@ class AuthService {
         confirmationCode: confirmationCode,
         newPassword: newPassword,
       );
-      
+
       AppLogger.info('Password reset confirmed for: $email', tag: _tag);
       return const Result.success(null);
     } on AuthException catch (e) {
-      AppLogger.error('Password reset confirmation failed: ${e.message}', tag: _tag, error: e);
+      AppLogger.error('Password reset confirmation failed: ${e.message}',
+          tag: _tag, error: e);
       return Result.failure(_mapAuthException(e));
     } catch (e, stackTrace) {
       AppLogger.error(
@@ -486,8 +495,9 @@ class AuthService {
 
   /// Map Amplify Auth exceptions to domain failures
   AuthFailure _mapAuthException(AuthException exception) {
-    final code = exception.underlyingException?.toString() ?? exception.runtimeType.toString();
-    
+    final code = exception.underlyingException?.toString() ??
+        exception.runtimeType.toString();
+
     return AuthFailure(
       message: exception.message,
       code: code,

@@ -41,7 +41,7 @@ class _LoginFormState extends State<LoginForm> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  
+
   EmailInput _email = const EmailInput.pure();
   PasswordInput _password = const PasswordInput.pure();
   bool _isPasswordVisible = false;
@@ -74,19 +74,21 @@ class _LoginFormState extends State<LoginForm> {
 
     if (_isSignUpMode) {
       context.read<AuthBloc>().add(
-        AuthSignUpRequested(
-          email: email,
-          password: password,
-          name: email.split('@').first, // Use email prefix as name for simplicity
-        ),
-      );
+            AuthSignUpRequested(
+              email: email,
+              password: password,
+              name: email
+                  .split('@')
+                  .first, // Use email prefix as name for simplicity
+            ),
+          );
     } else {
       context.read<AuthBloc>().add(
-        AuthLoginRequested(
-          email: email,
-          password: password,
-        ),
-      );
+            AuthLoginRequested(
+              email: email,
+              password: password,
+            ),
+          );
     }
   }
 
@@ -123,9 +125,9 @@ class _LoginFormState extends State<LoginForm> {
               ),
               validator: (value) => EmailInput.dirty(value ?? '').error,
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // Password Field
             TextFormField(
               controller: _passwordController,
@@ -139,7 +141,9 @@ class _LoginFormState extends State<LoginForm> {
                 prefixIcon: const Icon(Icons.lock_outlined),
                 suffixIcon: IconButton(
                   icon: Icon(
-                    _isPasswordVisible ? Icons.visibility_off : Icons.visibility,
+                    _isPasswordVisible
+                        ? Icons.visibility_off
+                        : Icons.visibility,
                   ),
                   onPressed: () {
                     setState(() {
@@ -152,14 +156,14 @@ class _LoginFormState extends State<LoginForm> {
               ),
               validator: (value) => PasswordInput.dirty(value ?? '').error,
             ),
-            
+
             const SizedBox(height: 24),
-            
+
             // Submit Button
             BlocBuilder<AuthBloc, AuthState>(
               builder: (context, state) {
                 final isLoading = state is AuthLoading;
-                
+
                 return FilledButton(
                   onPressed: isLoading ? null : _onSubmit,
                   child: isLoading
@@ -169,16 +173,16 @@ class _LoginFormState extends State<LoginForm> {
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
                       : Text(
-                          _isSignUpMode 
-                              ? context.l10n.signUp 
+                          _isSignUpMode
+                              ? context.l10n.signUp
                               : context.l10n.signIn,
                         ),
                 );
               },
             ),
-            
+
             const SizedBox(height: 16),
-            
+
             // Switch between Sign In / Sign Up
             TextButton(
               onPressed: () {
@@ -192,7 +196,7 @@ class _LoginFormState extends State<LoginForm> {
                     : context.l10n.dontHaveAccount,
               ),
             ),
-            
+
             // Forgot Password (only show in sign in mode)
             if (!_isSignUpMode) ...[
               const SizedBox(height: 8),

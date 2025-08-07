@@ -176,8 +176,11 @@ class AppColors {
   }
 
   /// Get color based on current theme brightness
-  static Color getColor(BuildContext context, Color lightColor, Color darkColor) {
-    return Theme.of(context).brightness == Brightness.light ? lightColor : darkColor;
+  static Color getColor(
+      BuildContext context, Color lightColor, Color darkColor) {
+    return Theme.of(context).brightness == Brightness.light
+        ? lightColor
+        : darkColor;
   }
 
   /// Get text color with emphasis

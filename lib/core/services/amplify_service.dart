@@ -39,7 +39,7 @@ class AmplifyService {
 
       _isConfigured = true;
       AppLogger.info('AWS Amplify initialized successfully', tag: _tag);
-      
+
       return const Result.success(null);
     } catch (e, stackTrace) {
       AppLogger.error(
@@ -48,7 +48,7 @@ class AmplifyService {
         error: e,
         stackTrace: stackTrace,
       );
-      
+
       return Result.failure(
         ServerFailure(
           message: 'Failed to initialize AWS Amplify',
@@ -63,11 +63,11 @@ class AmplifyService {
   Future<Result<void>> reset() async {
     try {
       AppLogger.info('Resetting Amplify configuration...', tag: _tag);
-      
+
       // Note: Amplify doesn't provide a direct reset method
       // This is mainly for testing purposes
       _isConfigured = false;
-      
+
       AppLogger.info('Amplify reset completed', tag: _tag);
       return const Result.success(null);
     } catch (e, stackTrace) {
@@ -77,7 +77,7 @@ class AmplifyService {
         error: e,
         stackTrace: stackTrace,
       );
-      
+
       return Result.failure(
         ServerFailure(
           message: 'Failed to reset AWS Amplify',

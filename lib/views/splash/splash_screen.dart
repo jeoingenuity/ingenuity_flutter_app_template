@@ -14,7 +14,7 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> 
+class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
@@ -68,8 +68,9 @@ class _SplashScreenState extends State<SplashScreen>
       // Check for updates
       final shorebirdService = GetIt.instance<ShorebirdService>();
       final updateResult = await shorebirdService.checkForUpdates();
-      
-      if (updateResult.isSuccess && updateResult.data?.isUpdateAvailable == true) {
+
+      if (updateResult.isSuccess &&
+          updateResult.data?.isUpdateAvailable == true) {
         AppLogger.info('Update available, downloading...', tag: 'SPLASH');
         await shorebirdService.downloadUpdate();
       }
@@ -77,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen>
       // Check auth state
       final authService = GetIt.instance<AuthService>();
       final authResult = await authService.initialize();
-      
+
       if (authResult.isSuccess) {
         AppLogger.info('Auth initialized: ${authResult.data}', tag: 'SPLASH');
       }
@@ -93,7 +94,7 @@ class _SplashScreenState extends State<SplashScreen>
         error: e,
         stackTrace: stackTrace,
       );
-      
+
       if (mounted) {
         _navigateToNextScreen();
       }
@@ -102,13 +103,15 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _navigateToNextScreen() {
     final authService = GetIt.instance<AuthService>();
-    
+
     Widget nextScreen;
     if (authService.isAuthenticated) {
-      AppLogger.info('[SPLASH] User authenticated, navigating to counter', tag: 'SPLASH');
+      AppLogger.info('[SPLASH] User authenticated, navigating to counter',
+          tag: 'SPLASH');
       nextScreen = const CounterPage();
     } else {
-      AppLogger.info('[SPLASH] User not authenticated, navigating to login', tag: 'SPLASH');
+      AppLogger.info('[SPLASH] User not authenticated, navigating to login',
+          tag: 'SPLASH');
       nextScreen = const LoginPage();
     }
 

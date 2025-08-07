@@ -18,16 +18,16 @@ class AppTheme {
       colorScheme: colorScheme,
       textTheme: textTheme,
       brightness: Brightness.light,
-      
+
       // Visual density for better touch targets
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      
+
       // Typography
       typography: Typography.material2021(
         platform: TargetPlatform.android,
         colorScheme: colorScheme,
       ),
-      
+
       // App Bar Theme
       appBarTheme: AppBarTheme(
         backgroundColor: colorScheme.surface,
@@ -51,7 +51,7 @@ class AppTheme {
           size: 24,
         ),
       ),
-      
+
       // Elevated Button Theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -70,7 +70,7 @@ class AppTheme {
           minimumSize: const Size(64, 40),
         ),
       ),
-      
+
       // Outlined Button Theme
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
@@ -90,7 +90,7 @@ class AppTheme {
           minimumSize: const Size(64, 40),
         ),
       ),
-      
+
       // Text Button Theme
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
@@ -106,7 +106,7 @@ class AppTheme {
           minimumSize: const Size(64, 40),
         ),
       ),
-      
+
       // Floating Action Button Theme
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: colorScheme.primary,
@@ -116,7 +116,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(16),
         ),
       ),
-      
+
       // Input Decoration Theme
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -173,7 +173,7 @@ class AppTheme {
           colorScheme.error,
         ),
       ),
-      
+
       // Card Theme
       cardTheme: CardThemeData(
         color: colorScheme.surface,
@@ -184,7 +184,7 @@ class AppTheme {
         ),
         margin: const EdgeInsets.all(8),
       ),
-      
+
       // Dialog Theme
       dialogTheme: DialogThemeData(
         backgroundColor: colorScheme.surface,
@@ -201,7 +201,7 @@ class AppTheme {
           colorScheme.onSurface,
         ),
       ),
-      
+
       // Bottom Navigation Bar Theme
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: colorScheme.surface,
@@ -212,7 +212,7 @@ class AppTheme {
         type: BottomNavigationBarType.fixed,
         elevation: 8,
       ),
-      
+
       // Navigation Bar Theme (Material 3)
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: colorScheme.surface,
@@ -243,7 +243,7 @@ class AppTheme {
           );
         }),
       ),
-      
+
       // Tab Bar Theme
       tabBarTheme: TabBarThemeData(
         labelColor: colorScheme.primary,
@@ -257,7 +257,7 @@ class AppTheme {
           ),
         ),
       ),
-      
+
       // List Tile Theme
       listTileTheme: ListTileThemeData(
         contentPadding: const EdgeInsets.symmetric(
@@ -277,7 +277,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(8),
         ),
       ),
-      
+
       // Checkbox Theme
       checkboxTheme: CheckboxThemeData(
         fillColor: MaterialStateProperty.resolveWith((states) {
@@ -291,7 +291,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(4),
         ),
       ),
-      
+
       // Radio Theme
       radioTheme: RadioThemeData(
         fillColor: MaterialStateProperty.resolveWith((states) {
@@ -301,7 +301,7 @@ class AppTheme {
           return colorScheme.outline;
         }),
       ),
-      
+
       // Switch Theme
       switchTheme: SwitchThemeData(
         thumbColor: MaterialStateProperty.resolveWith((states) {
@@ -317,14 +317,14 @@ class AppTheme {
           return colorScheme.surfaceVariant;
         }),
       ),
-      
+
       // Progress Indicator Theme
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: colorScheme.primary,
         linearTrackColor: colorScheme.surfaceVariant,
         circularTrackColor: colorScheme.surfaceVariant,
       ),
-      
+
       // Snack Bar Theme
       snackBarTheme: SnackBarThemeData(
         backgroundColor: colorScheme.inverseSurface,
@@ -339,7 +339,7 @@ class AppTheme {
         behavior: SnackBarBehavior.floating,
         elevation: 6,
       ),
-      
+
       // Divider Theme
       dividerTheme: DividerThemeData(
         color: colorScheme.outline.withOpacity(0.2),
@@ -359,16 +359,16 @@ class AppTheme {
       colorScheme: colorScheme,
       textTheme: textTheme,
       brightness: Brightness.dark,
-      
+
       // Visual density for better touch targets
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      
+
       // Typography
       typography: Typography.material2021(
         platform: TargetPlatform.android,
         colorScheme: colorScheme,
       ),
-      
+
       // App Bar Theme
       appBarTheme: AppBarTheme(
         backgroundColor: colorScheme.surface,
@@ -392,10 +392,10 @@ class AppTheme {
           size: 24,
         ),
       ),
-      
+
       // Copy similar configuration from light theme with dark colors...
       // [Abbreviated for brevity - would include all the same component themes]
-      
+
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: colorScheme.primary,
@@ -413,9 +413,9 @@ class AppTheme {
           minimumSize: const Size(64, 40),
         ),
       ),
-      
+
       // [Additional theme configurations would follow the same pattern]
-      
+
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: colorScheme.surfaceVariant.withOpacity(0.3),
@@ -471,7 +471,7 @@ class AppTheme {
           colorScheme.error,
         ),
       ),
-      
+
       cardTheme: CardThemeData(
         color: colorScheme.surface,
         elevation: 1,
@@ -481,7 +481,7 @@ class AppTheme {
         ),
         margin: const EdgeInsets.all(8),
       ),
-      
+
       // [Continue with other component themes as needed]
     );
   }

@@ -39,7 +39,7 @@ class AppLogger {
     bool enableInAppViewer = true,
   }) {
     _minLogLevel = minLogLevel;
-    
+
     _talker = TalkerFlutter.init(
       settings: TalkerSettings(
         enabled: true,
@@ -154,9 +154,9 @@ class AppLogger {
         if (statusCode != null) 'Status: $statusCode',
         if (data != null) 'Data: $data',
       ].join(' | ');
-      
-      _log('API', '$message${details.isNotEmpty ? ' - $details' : ''}', 
-           tag: LogTags.api);
+
+      _log('API', '$message${details.isNotEmpty ? ' - $details' : ''}',
+          tag: LogTags.api);
     }
   }
 
@@ -177,7 +177,8 @@ class AppLogger {
 
   /// Log performance metrics
   static void performance(String message, {Duration? duration}) {
-    final durationText = duration != null ? ' (${duration.inMilliseconds}ms)' : '';
+    final durationText =
+        duration != null ? ' (${duration.inMilliseconds}ms)' : '';
     debug('$message$durationText', tag: LogTags.performance);
   }
 
@@ -195,7 +196,7 @@ class AppLogger {
   }) {
     final tagText = tag.isNotEmpty ? '[$tag] ' : '';
     final fullMessage = '$tagText$message';
-    
+
     switch (level) {
       case 'VERBOSE':
         _talker.verbose(fullMessage);
@@ -259,7 +260,8 @@ extension LoggerExtension on Object {
     AppLogger.warning(message, tag: tag);
   }
 
-  void logError(String message, {Object? error, StackTrace? stackTrace, String tag = ''}) {
+  void logError(String message,
+      {Object? error, StackTrace? stackTrace, String tag = ''}) {
     AppLogger.error(message, error: error, stackTrace: stackTrace, tag: tag);
   }
 }

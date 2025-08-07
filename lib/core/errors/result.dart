@@ -20,15 +20,15 @@ sealed class Result<T> extends Equatable {
 
   /// Gets the data if successful, otherwise returns null
   T? get data => switch (this) {
-    Success(data: final data) => data,
-    ResultFailure() => null,
-  };
+        Success(data: final data) => data,
+        ResultFailure() => null,
+      };
 
   /// Gets the failure if failed, otherwise returns null
   Failure? get failure => switch (this) {
-    Success() => null,
-    ResultFailure(failure: final failure) => failure,
-  };
+        Success() => null,
+        ResultFailure(failure: final failure) => failure,
+      };
 
   /// Transforms the data if successful using the provided function
   Result<U> map<U>(U Function(T data) mapper) {
@@ -91,9 +91,9 @@ sealed class Result<T> extends Equatable {
 
   @override
   List<Object?> get props => switch (this) {
-    Success(data: final data) => [data],
-    ResultFailure(failure: final failure) => [failure],
-  };
+        Success(data: final data) => [data],
+        ResultFailure(failure: final failure) => [failure],
+      };
 }
 
 /// Represents a successful result

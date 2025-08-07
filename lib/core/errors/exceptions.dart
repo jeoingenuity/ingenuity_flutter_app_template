@@ -16,7 +16,8 @@ abstract class AppException extends Equatable implements Exception {
   List<Object?> get props => [message, code, details];
 
   @override
-  String toString() => 'AppException: $message${code != null ? ' (Code: $code)' : ''}';
+  String toString() =>
+      'AppException: $message${code != null ? ' (Code: $code)' : ''}';
 }
 
 /// Network-related exceptions

@@ -59,7 +59,7 @@ void _registerCoreUtilities() {
   // HTTP client with interceptors
   getIt.registerLazySingleton<Dio>(() {
     final dio = Dio();
-    
+
     // Add logging interceptor in debug mode
     dio.interceptors.add(
       LogInterceptor(
@@ -224,9 +224,9 @@ void _registerHomeFeature() {
 /// Clean up all dependencies (useful for testing)
 Future<void> cleanupDependencies() async {
   AppLogger.info('Cleaning up dependencies...', tag: 'DI');
-  
+
   await getIt.reset();
-  
+
   AppLogger.info('Dependencies cleaned up', tag: 'DI');
 }
 
