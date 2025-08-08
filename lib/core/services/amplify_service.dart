@@ -1,5 +1,6 @@
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:flutter/widgets.dart';
 import '../../amplifyconfiguration.dart';
 import '../utils/logger.dart';
 import '../errors/result.dart';
@@ -17,6 +18,17 @@ class AmplifyService {
   Future<Result<void>> initialize({String? config}) async {
     try {
       AppLogger.info('Initializing AWS Amplify...', tag: _tag);
+
+      // Ensure Flutter binding is initialized (should be done in bootstrap)
+      try {
+        WidgetsFlutterBinding.ensureInitialized();
+        AppLogger.debug('Flutter binding ensured', tag: _tag);
+      } catch (e) {
+        AppLogger.warning(
+          'Flutter binding issue: $e',
+          tag: _tag,
+        );
+      }
 
       if (Amplify.isConfigured) {
         AppLogger.warning('Amplify is already configured', tag: _tag);
