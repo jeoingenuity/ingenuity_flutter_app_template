@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/di/injection_container.dart';
-import '../../../../core/theme/app_theme.dart';
-import '../../../../l10n/l10n.dart';
-import '../bloc/auth_bloc.dart';
-import '../widgets/login_form.dart';
+import '../../core/di/injection_container.dart';
+import '../../l10n/l10n.dart';
+import '../../providers/auth_bloc.dart';
+import 'widgets/login_form.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

@@ -9,7 +9,7 @@ import '../services/shorebird_service.dart';
 import '../utils/logger.dart';
 
 // Feature dependencies
-import '../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../providers/auth_bloc.dart';
 
 // TODO: Import feature dependencies when they are created
 // import '../../features/auth/domain/repositories/auth_repository.dart';

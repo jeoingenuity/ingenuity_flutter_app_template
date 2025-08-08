@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
-import '../../../../l10n/l10n.dart';
-import '../bloc/auth_bloc.dart';
+import '../../../l10n/l10n.dart';
+import '../../../providers/auth_bloc.dart';
 
 // Form input validation
 class EmailInput extends FormzInput<String, String> {

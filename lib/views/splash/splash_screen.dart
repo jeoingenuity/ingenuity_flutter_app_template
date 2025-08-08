@@ -4,7 +4,7 @@ import 'package:get_it/get_it.dart';
 import '../../core/services/auth_service.dart';
 import '../../core/services/shorebird_service.dart';
 import '../../core/utils/logger.dart';
-import '../../features/auth/presentation/pages/login_page.dart';
+import '../auth/login_page.dart';
 import '../../counter/counter.dart';
 
 class SplashScreen extends StatefulWidget {

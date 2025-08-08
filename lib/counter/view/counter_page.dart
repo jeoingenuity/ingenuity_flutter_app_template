@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ingenuity_flutter_app_template/counter/counter.dart';
 import 'package:ingenuity_flutter_app_template/l10n/l10n.dart';
 import 'package:ingenuity_flutter_app_template/core/di/injection_container.dart';
-import 'package:ingenuity_flutter_app_template/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:ingenuity_flutter_app_template/features/auth/presentation/pages/login_page.dart';
+import 'package:ingenuity_flutter_app_template/providers/auth_bloc.dart';
+import 'package:ingenuity_flutter_app_template/views/auth/login_page.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
