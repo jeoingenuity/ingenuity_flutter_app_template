@@ -12,9 +12,11 @@ void main() async {
 
   app_logger.AppLogger.info('Starting Ingenuity Flutter App (Development)');
 
-  // Initialize dependencies
-  await initializeDependencies();
-
-  // Bootstrap the app
-  bootstrap(() => const App());
+  // Bootstrap the app (includes WidgetsFlutterBinding.ensureInitialized())
+  await bootstrap(() async {
+    // Initialize dependencies after Flutter binding is ready
+    await initializeDependencies();
+    
+    return const App();
+  });
 }
