@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A Very Good Project created by Very Good CLI.",
+    "description": "A production-ready Flutter application template featuring Clean Architecture, AWS Amplify Authentication, and BLoC State Management.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

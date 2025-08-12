@@ -4,13 +4,13 @@ import 'core/di/injection_container.dart';
 import 'core/utils/logger.dart' as app_logger;
 
 void main() async {
-  // Initialize logger first
+  // Initialize logger
   app_logger.AppLogger.initialize(
-    minLogLevel: app_logger.LogLevel.verbose, // Verbose for development
+    minLogLevel: app_logger.LogLevel.info,
     enableInAppViewer: true,
   );
 
-  app_logger.AppLogger.info('Starting Ingenuity Flutter App (Development)');
+  app_logger.AppLogger.info('Starting Ingenuity Flutter App');
 
   // Bootstrap the app (includes WidgetsFlutterBinding.ensureInitialized())
   await bootstrap(() async {

@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example.verygoodcore.ingenuity-flutter-app-template" "\0"
+            VALUE "CompanyName", "com.example.ingenuity-flutter-app-template" "\0"
             VALUE "FileDescription", "ingenuity_flutter_app_template" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "ingenuity_flutter_app_template" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2025 com.example.verygoodcore.ingenuity-flutter-app-template. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 com.example.ingenuity-flutter-app-template. All rights reserved." "\0"
             VALUE "OriginalFilename", "ingenuity_flutter_app_template.exe" "\0"
             VALUE "ProductName", "Ingenuity Flutter App Template" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
